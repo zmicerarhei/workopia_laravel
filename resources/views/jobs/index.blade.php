@@ -1,8 +1,4 @@
-@extends('layout')
-
-@section('title', 'Workopia | Available jobs')
-
-@section('content')
+<x-layout>
     <h1> Available jobs </h1>
     <ul>
         @forelse ($jobs as $job)
@@ -11,4 +7,4 @@
             <p>No jobs found</p>
         @endforelse
     </ul>
-@endsection
+</x-layout>
