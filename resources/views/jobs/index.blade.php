@@ -2,7 +2,9 @@
     <h1> Available jobs </h1>
     <ul>
         @forelse ($jobs as $job)
-            <li> {{ $job }} </li>
+            <a href="{{ route('jobs.show', $job->id) }}">
+                <li> {{ $job->title }} </li>
+            </a>
         @empty
             <p>No jobs found</p>
         @endforelse

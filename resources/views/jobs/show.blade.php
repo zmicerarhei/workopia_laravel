@@ -1,4 +1,5 @@
 <x-layout>
-    <x-slot name="title">Create Job</x-slot>
-    <h1>Show Job {{ $id }}</h1>
+    <x-slot name="title">Show Job</x-slot>
+    <h1 class="text-3xl font-semibold">{{ $job->title }}</h1>
+    <p class="mt-4">{{ $job->description }}</p>
 </x-layout>
