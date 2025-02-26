@@ -32,12 +32,12 @@ class JobController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $valuidatedData = $request->validate([
+        $validatedData = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string|max:255',
         ]);
 
-        $job = Job::create($valuidatedData);
+        $job = Job::create($validatedData);
 
         return redirect()->route('jobs.index');
     }
