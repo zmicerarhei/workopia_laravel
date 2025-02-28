@@ -58,7 +58,7 @@
                 placeholder="Company Description" />
 
             <x-inputs.text id="company_website" name="company_website" label="Company Website"
-                placeholder="https://www.acme.com" />
+                placeholder="https://www.acme.com" type="url" />
 
             <x-inputs.text id="contact_phone " name="contact_name" label="Contact Name" placeholder="John Doe" />
 
