@@ -9,14 +9,25 @@
             @auth
                 <a href="/jobs/saved" class="text-white hover:underline py-2">Saved Jobs</a>
 
-                <a href="/user/dashboard" class="text-white hover:underline py-2">
+                {{-- <a href="{{ route('dashboard') }}" class="text-white hover:underline py-2">
                     <i class="fa fa-gauge mr-1"></i> Dashboard
-                </a>
+                </a> --}}
                 <x-logout-button></x-logout-button>
                 <x-button-link url="{{ route('jobs.create') }}" icon="edit">Create Job</x-button-link>
+                <div class="flex items-center space-x-3">
+                    <a href="{{ route('dashboard') }}" class="">
+                        @if (Auth::user()->avatar)
+                            <img src="{{ asset('storage/' . Auth::user()->avatar) }}" alt="{{ Auth::user()->name }}"
+                                class="w-10 h-10 object-cover rounded-full">
+                        @else
+                            <img src="{{ asset('storage/avatars/default-avatar.png') }}" alt="{{ Auth::user()->name }}"
+                                class="w-10 h-10 object-cover rounded-full">
+                        @endif
+                    </a>
+                </div>
             @else
-                <a href="{{ route('user.login') }}" class="text-white hover:underline py-2">Login</a>
-                <a href="{{ route('user.register') }}" class="text-white hover:underline py-2">Register</a>
+                <a href="{{ route('login') }}" class="text-white hover:underline py-2">Login</a>
+                <a href="{{ route('register') }}" class="text-white hover:underline py-2">Register</a>
             @endauth
         </nav>
         <button @click="open = !open" id="hamburger" class="text-white md:hidden flex items-center">
@@ -34,8 +45,8 @@
             <x-button-link url="{{ route('jobs.create') }}" icon="edit" :block="true">Create Job</x-button-link>
             <x-logout-button :mobile="true"></x-logout-button>
         @else
-            <x-nav-link url="{{ route('user.login') }}" :active="request()->routeIs('user.login')" :mobile="true">Login</x-nav-link>
-            <x-nav-link url="{{ route('user.register') }}" :active="request()->routeIs('user.register')" :mobile="true">Register</x-nav-link>
+            <x-nav-link url="{{ route('login') }}" :active="request()->routeIs('login')" :mobile="true">Login</x-nav-link>
+            <x-nav-link url="{{ route('register') }}" :active="request()->routeIs('register')" :mobile="true">Register</x-nav-link>
         @endauth
     </div>
 </header>

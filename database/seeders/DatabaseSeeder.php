@@ -26,8 +26,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(
             [
+                TestUserSeeder::class,
                 RandomUserSeeder::class,
-                JobSeeder::class
+                JobSeeder::class,
                 // RandomJobSeeder::class,
             ]
         );
